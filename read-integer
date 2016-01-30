@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# test-integer: evaluate the value of an integer.
+echo -n "Please enter an integer -> "
+read int
+
+if [ -z "$int" ]; then
+    echo "INT is not an integer." >&2
+    exit 1
+fi
+
+if [ $int -eq 0 ]; then
+		echo "INT is zero."
+else
+		if [ $int -lt 0 ]; then
+			echo "INT is negative."
+		else
+			echo "INT is positive."
+		fi
+		if [ $((int % 2)) -eq 0 ]; then
+			echo "INT is even."
+		else
+			echo "INT is odd."
+		fi
+fi

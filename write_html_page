@@ -1,0 +1,32 @@
+#!/bin/bash
+
+write_html_page () {
+	cat <<- _EOF_
+	<HTML>
+		<HEAD>
+			<TITLE>$TITLE</TITLE>
+		</HEAD
+		<BODY>
+			<H1>$TITLE</H1>
+			<P>$TITMSTAMP</P>
+			$(report_uptime)
+			$(report_disk_space)
+			$(report_home_space)
+		</BODY>
+	</HTML>
+	_EOF_
+	return
+}
+
+#output html page
+
+if [[ -n $filename ]]; then
+	if touch $filename && [[ -f $filename ]]; then
+		write_html_page > $filename
+	else
+		echo "$PROGNAME : cannot write file '$finename' " >&2
+		exit 1
+	fi
+else 
+	write_html_page
+fi

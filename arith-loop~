@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# arith-loop : script to demonstrate arithmetic operators
+
+finished=0
+a=0

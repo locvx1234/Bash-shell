@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# select
+
+echo "What OS do like ?"
+select var in "Linux" "Gnu Hurd" "Free BSD" "Max OSX" "Solaris" "QNX" "Other"; do
+break
+done
+echo "You choose $var"
+
+

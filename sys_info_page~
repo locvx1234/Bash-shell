@@ -1,0 +1,28 @@
+#!/bin/bash
+
+#Program to output a system information page
+
+report_home_space () {
+	if [[ $(id -u) -eq  0 ]]; then
+		cat <<- _EOF_
+			<H2>Home space Utilization ($USER) </H2>
+			<PRE>$(du -sh /home/*)</PRE>
+			_EOF_
+	else
+		cat <<- _EOF_
+			<H2> Home Space Utilixation ($USER)</H2>
+			<PRE>$(du -sh $HOME)</PRE>
+			_EOF_
+	fi
+	return 
+}
+echo "<HTML>"
+echo "	<HEAD>"
+echo "		<TITLE>Page Title</TITLE>"
+echo "	</HEAD>"
+echo "	<BODY>"
+echo "		Page Body."
+report_home_space
+echo "	</BODY>"
+echo "</HTML>"
+
